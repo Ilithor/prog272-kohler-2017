@@ -21,6 +21,7 @@ class App extends Component {
     };
     setAddress = () => {
         this.setState({
+            image: <img src={require("./palpatineelectionposter.jpg")} alt="Emperor Palpatine" />,
             firstName: 'Unknown',
             lastName: 'Palpatine',
             home: 'Imperial Throne',
@@ -36,6 +37,9 @@ class App extends Component {
                     <img src={logo} className="App-logo" alt="logo" />
                     <h2>Welcome to Prog272</h2>
                 </div>
+                <p className="App-intro">
+                    {this.state.image}
+                </p>
                 <p className="App-intro">
                     Nine: {this.state.nine}
                 </p>
