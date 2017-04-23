@@ -2,16 +2,20 @@
   text-align: center;
 }
 
+.Address {
+  text-align: center;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgb(225, 0, 0);
   height: 150px;
   padding: 20px;
-  color: white;
+  color: black;
 }
 
 .App-intro {

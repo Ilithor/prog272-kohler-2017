@@ -2,7 +2,7 @@
  * Created by bcuser on 4/17/17.
  */
 import React, {Component} from 'react';
-import '../App.css';
+import '../css/App.css';
 
 class Address extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class Address extends Component {
         const address = this.props.addressList[1];
 
         this.setState({
-            image: <img src={require("./palpatineelectionposter.jpg")} alt="Emperor Palpatine"/>,
+            image: <img src={require("./../images/palpatineelectionposter.jpg")} alt="Emperor Palpatine"/>,
             firstName: address.firstName,
             lastName: address.lastName,
             home: address.home,
