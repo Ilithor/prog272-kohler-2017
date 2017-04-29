@@ -4,6 +4,7 @@
 const unknown = 'unknown';
 const addresses = [
     {
+        image: 'restricted access',
         firstName: unknown,
         lastName: unknown,
         home: unknown,
@@ -12,6 +13,7 @@ const addresses = [
         sector: unknown
     },
     {
+        image:'./images/palpatineelectionposter.jpg',
         firstName: unknown,
         lastName: 'Palpatine',
         home: 'Imperial Throne',

@@ -1,97 +1,102 @@
 import React from 'react';
 import Address from '../components/Address';
 import addresses from '../address-list';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import '../css/index.css';
 
-describe('React Jest Suite', function () {
+describe('Address mount Suite', function () {
 
-    const unknown = "unknown";
+    let quiet = true;
+    let address = {};
+    const unknown = 'unknown';
+
+    /*
+     * @param {object} wrapper - Container for a bunch of HTML nodes
+     * @param {number} index - Index of HTML element.
+     * @param {boolean} talkToMe - Speak even if quiet is true
+     */
+
+    const getIndex = function (wrapper, index, talkToMe) {
+        if(!quiet || talkToMe) {
+            const ninep = wrapper.find('div#addressShowRender').childAt(index).debug();
+            console.log('NINEP:', ninep);
+        }
+    };
+
+    beforeEach(function () {
+        address = addresses[0];
+    });
+
+    const defaultFieldTest = (name, index, talkToMe) => {
+        const wrapper = mount(<Address address={address} />);
+        const welcome = <p className="App-intro">{name}</p>;
+        getIndex(wrapper, index, talkToMe);
+        expect(wrapper.contains(welcome)).toEqual(true);
+    };
+
+    const afterClickFieldTest = (name, index, talkToMe) => {
+        const wrapper = mount(<Address address={address}/>);
+        const welcome = <p className="App-intro">{name}</p>;
+        wrapper.find('button#setAddress').simulate('click');
+        getIndex(wrapper, index, talkToMe);
+        expect(wrapper.contains(welcome)).toEqual(true);
+    };
 
     it('renders and displays the default first name', () => {
-        console.log(addresses[0]);
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        const welcome = unknown;
-        expect(wrapper.contains(welcome)).toEqual(true);
+        console.log(addresses);
+        defaultFieldTest('firstName: ' + unknown, 0);
     });
 
     it('renders and displays the updated first name', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        wrapper.find('button.setAddress').simulate('click');
-        const welcome = "unknown";
-        expect(wrapper.contains(welcome)).toEqual(true);
+        afterClickFieldTest('firstName: ' + unknown, 1);
     });
 
     it('renders and displays the default last name', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        const welcome = unknown;
-        expect(wrapper.contains(welcome)).toEqual(true);
+        defaultFieldTest('lastName: ' + unknown, 0);
     });
 
     it('renders and displays the updated last name', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        wrapper.find('button.setAddress').simulate('click');
-        const welcome = "Palpatine";
-        expect(wrapper.contains(welcome)).toEqual(true);
+        afterClickFieldTest('lastName: Palpatine', 1);
     });
 
     it('renders and displays the default home', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        const welcome = unknown;
-        expect(wrapper.contains(welcome)).toEqual(true);
+        defaultFieldTest('home: ' + unknown, 0);
     });
 
     it('renders and displays the updated home', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        wrapper.find('button.setAddress').simulate('click');
-        const welcome = "Imperial Throne";
-        expect(wrapper.contains(welcome)).toEqual(true);
+        afterClickFieldTest('home: Imperial Throne', 1);
     });
 
     it('renders and displays the default city', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        const welcome = unknown;
-        expect(wrapper.contains(welcome)).toEqual(true);
+        defaultFieldTest('city: ' + unknown, 0);
     });
 
     it('renders and displays the updated city', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        wrapper.find('button.setAddress').simulate('click');
-        const welcome = "Imperial City";
-        expect(wrapper.contains(welcome)).toEqual(true);
+        afterClickFieldTest('city: Imperial City', 1);
     });
 
     it('renders and displays the default planet', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        const welcome = unknown;
-        expect(wrapper.contains(welcome)).toEqual(true);
+        defaultFieldTest('planet: ' + unknown, 0);
     });
 
     it('renders and displays the updated planet', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        wrapper.find('button.setAddress').simulate('click');
-        const welcome = "Imperial Center (Coruscant)";
-        expect(wrapper.contains(welcome)).toEqual(true);
+        afterClickFieldTest('planet: Imperial Center (Coruscant)', 1);
     });
 
     it('renders and displays the default sector', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        const welcome = unknown;
-        expect(wrapper.contains(welcome)).toEqual(true);
+        defaultFieldTest('sector: ' + unknown, 0);
     });
 
     it('renders and displays the updated sector', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        wrapper.find('button.setAddress').simulate('click');
-        const welcome = "Imperial Sector";
-        expect(wrapper.contains(welcome)).toEqual(true);
+        afterClickFieldTest('sector: Imperial Sector', 1);
     });
 
-    /*for (var variable in addresses[1]) {
+    /*for (var variable in addressList[1]) {
         it.only('renders button click message', () => {
-            const wrapper = shallow(<Address addressList={addresses}/>);
+            const wrapper = shallow(<Address addressList={addressList}/>);
             wrapper.find('button.setAddress').simulate('click');
-            addresses[1][variable] = <Address addresses={addresses}/>;
-            expect(wrapper.contains(addresses)).toEqual(true);
+            addressList[1][variable] = <Address addressList={addressList}/>;
+            expect(wrapper.contains(addressList)).toEqual(true);
         });
     }*/
 });

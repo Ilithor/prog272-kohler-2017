@@ -3,64 +3,50 @@
  */
 import React, {Component} from 'react';
 import '../css/App.css';
+import addresses from '../address-list';
+import AddressShow from "./AddressShow";
 
 class Address extends Component {
     constructor(props) {
         super(props);
 
         console.log('ADDRESS PROPS', typeof this.props);
-        const address = this.props.addressList[0];
+        this.addressIndex=0;
+        const address = addresses[this.addressIndex];
         this.state = {
-            firstName: address.firstName,
-            lastName: address.lastName,
-            home: address.home,
-            city: address.city,
-            planet: address.planet,
-            sector: address.sector
-        }
+            address: address
+
+        };
+        this.quiet = true;
     }
 
-    setAddress = () => {
-        const address = this.props.addressList[1];
+
+    log=(message, message2 = '', message3 = '') => {
+        if (!this.quiet) {
+            const label = this.constructor.name + ': ';
+            console.log(label, message, message2, message3);
+        }
+    };
+
+    onAddressChange = (event) => {
+        this.addressIndex = 1;
+        const address = addresses[this.addressIndex];
 
         this.setState({
-            image: <img src={require("./../images/palpatineelectionposter.jpg")} alt="Emperor Palpatine"/>,
-            firstName: address.firstName,
-            lastName: address.lastName,
-            home: address.home,
-            city: address.city,
-            planet: address.planet,
-            sector: address.sector
-        })
+            address: address
+        });
     };
 
     render() {
+        if (!this.quiet) { console.log("ADDRESS RENDER"); }
         return (
-            <div className="Address">
-                <p className="App-intro">
-                    {this.state.image}
-                </p>
-                <p className="App-intro">
-                    firstName: {this.state.firstName}
-                </p>
-                <p className="App-intro">
-                    lastName: {this.state.lastName}
-                </p>
-                <p className="App-intro">
-                    home: {this.state.home}
-                </p>
-                <p className="App-intro">
-                    city: {this.state.city}
-                </p>
-                <p className="App-intro">
-                    planet: {this.state.planet}
-                </p>
-                <p className="App-intro">
-                    sector: {this.state.sector}
-                </p>
-                <button className="setAddress" onClick={this.setAddress}>Set Address</button>
+            <div className="App">
+                <AddressShow
+                    address={this.state.address}
+                    onAddressChange={this.onAddressChange}
+                />
             </div>
-        );
+        )
     }
 }
 
