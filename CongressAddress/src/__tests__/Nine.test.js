@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../components/App';
+import App from '../components/SmallNumbers';
 import { shallow } from 'enzyme';
 
 describe('React Jest Suite', function () {

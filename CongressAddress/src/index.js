@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import Address from './components/Address'
- import addresses from './address-list';
-import './css/index.css';
+import ElfMenu from './components/ElfMenu';
+import ElfHeader from "./components/ElfHeader";
 
 ReactDOM.render(
     <div>
-        <App />
-        <Address addressList={addresses}/>
+        <ElfHeader/>
+        <ElfMenu/>
     </div>,
     document.getElementById('root')
 );
