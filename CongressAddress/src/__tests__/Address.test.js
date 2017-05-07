@@ -23,6 +23,10 @@ describe('Address mount Suite', function () {
         }
     };
 
+    it('see if true is true', () => {
+        expect(true).toBe(true);
+    });
+
     beforeEach(function () {
         address = addresses[0];
     });

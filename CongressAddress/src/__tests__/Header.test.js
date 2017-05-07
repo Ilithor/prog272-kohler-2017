@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import ElfHeader from '../components/ElfHeader';
 import { shallow } from 'enzyme';
 
-describe('React Jest Suite', function () {
+describe('Header Test', function () {
 
 
+
+    it('see if true is true', () => {
+        expect(true).toBe(true);
+    });
 
     it('renders without our App component without crashing', () => {
         const div = document.createElement('div');

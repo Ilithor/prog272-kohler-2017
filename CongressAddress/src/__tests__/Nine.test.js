@@ -2,7 +2,13 @@ import React from 'react';
 import App from '../components/SmallNumbers';
 import { shallow } from 'enzyme';
 
-describe('React Jest Suite', function () {
+describe('Nine Test', function () {
+
+
+
+    it('see if true is true', () => {
+        expect(true).toBe(true);
+    });
 
     it('renders and displays the word Nine', () => {
         const wrapper = shallow(<App />);
