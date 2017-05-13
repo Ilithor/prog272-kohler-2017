@@ -9,7 +9,7 @@ import {
     BrowserRouter as Router,
     Route,
     Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 import '../css/App.css';
 
 class ElfMenu extends Component {
@@ -17,14 +17,14 @@ class ElfMenu extends Component {
         return (
             <Router>
                 <div>
-                    <div className="App">
-                        <ul>
-                            <li><Link to="/">AddressShow</Link></li>
-                            <li><Link to="/edit">AddressEdit</Link></li>
-                            <li><Link to="/small">SmallNumbers</Link></li>
-                            <Route exact path="/" component={Address}/>
-                            <Route path="/edit" component={AddressChanger}/>
-                            <Route path="/small" component={SmallNumbers}/>
+                    <div className='App'>
+                        <ul id='elfMenu'>
+                            <li><Link to='/'>AddressShow</Link></li>
+                            <li><Link to='/edit'>AddressEdit</Link></li>
+                            <li><Link to='/small'>SmallNumbers</Link></li>
+                            <Route exact path='/' component={Address}/>
+                            <Route path='/edit' component={AddressChanger}/>
+                            <Route path='/small' component={SmallNumbers}/>
                         </ul>
                     </div>
                 </div>

@@ -2,7 +2,6 @@
  * Created by bcuser on 4/17/17.
  */
 import React, {Component} from 'react';
-import image from "../images/palpatineelectionposter.jpg";
 import '../css/App.css';
 
 class AddressShow extends Component {
@@ -22,31 +21,34 @@ class AddressShow extends Component {
     }
 
     render() {
-        this.log("SHOW ADDRESS RENDER");
+        this.log('SHOW ADDRESS RENDER');
         return (
-            <div id="addressShowRender" className="App">
-                <p className="App-intro">
-                    <img src={image} alt="derp"/>
+            <div id='addressShowRender' className='App'>
+                <p className='App-intro'>
+                    firstName: {this.props.address === undefined ? '' : this.props.address.firstName}
                 </p>
-                <p className="App-intro">
-                    firstName: {this.props.address.firstName}
+                <p className='App-intro'>
+                    lastName: {this.props.address === undefined ? '' : this.props.address.lastName}
                 </p>
-                <p className="App-intro">
-                    lastName: {this.props.address.lastName}
+                <p className='App-intro'>
+                    home: {this.props.address === undefined ? '' : this.props.address.home}
                 </p>
-                <p className="App-intro">
-                    home: {this.props.address.home}
+                <p className='App-intro'>
+                    city: {this.props.address === undefined ? '' : this.props.address.city}
                 </p>
-                <p className="App-intro">
-                    city: {this.props.address.city}
+                <p className='App-intro'>
+                    planet: {this.props.address === undefined ? '' : this.props.address.planet}
                 </p>
-                <p className="App-intro">
-                    planet: {this.props.address.planet}
+                <p className='App-intro'>
+                    sector: {this.props.address === undefined ? '' : this.props.address.sector}
                 </p>
-                <p className="App-intro">
-                    sector: {this.props.address.sector}
-                </p>
-                <button id="setAddress"  onClick={this.props.onAddressChange}>Show Address
+                <button id='setAddress' onClick={this.props.onAddressChange}>Show Address
+                </button>
+                <button id='firstAddress' onClick={this.props.onAddressChangeFirst}>First Address
+                </button>
+                <button id='nextAddress'  onClick={this.props.onAddressNext}>Next Address
+                </button>
+                <button id='lastAddress' onClick={this.props.onAddressChangeLast}>Last Address
                 </button>
             </div>
         );

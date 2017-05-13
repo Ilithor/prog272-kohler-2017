@@ -1,7 +1,7 @@
 /**
  * Created by bcuser on 5/6/17.
  */
-let fs = require("fs");
+let fs = require('fs');
 let debug = require('debug')('get-address');
 
 debug('Testing debug');
@@ -9,8 +9,8 @@ debug('Testing debug');
 function readFile(fileName, callback) {
     'use strict';
     if (!callback) {
-        return new Promise(function (resolve, reject) {
-            fs.readFile(fileName, 'utf8', function (err, fileContents) {
+        return new Promise(function(resolve, reject) {
+            fs.readFile(fileName, 'utf8', function(err, fileContents) {
                 if (err) {
                     reject(err);
                 }
@@ -20,16 +20,16 @@ function readFile(fileName, callback) {
             });
         });
     } else {
-            fs.readFile(fileName, 'utf8', function (err, fileContents) {
-                if (err) {
-                    throw (err);
-                }
-                callback({
-                    'result': fileContents
-                });
+        fs.readFile(fileName, 'utf8', function(err, fileContents) {
+            if (err) {
+                throw (err);
+            }
+            callback({
+                'result': fileContents
             });
-        }
+        });
     }
+}
 
 function getAddress(value, char) {
     'use strict';
@@ -49,10 +49,10 @@ function getCity(value, char, len) {
 
 function writeIt(label, value, noComma) {
     let comma = noComma ? '"' : '",';
-    console.log('/t' + label, '"' + value + comma)
+    console.log('/t' + label, '"' + value + comma);
 }
 
-readFile('address.json').then(function (text) {
+readFile('address.json').then(function(text) {
     debug(text);
     let json = JSON.parse(text.result);
     debug('/n/nSTRINGIFY/n/n', JSON.stringify(json));

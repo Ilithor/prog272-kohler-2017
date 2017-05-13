@@ -22,7 +22,40 @@
   font-size: large;
 }
 
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+ul {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+li:last-child {
+  border-bottom: none;
 }

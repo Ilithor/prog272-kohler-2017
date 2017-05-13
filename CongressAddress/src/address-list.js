@@ -4,7 +4,6 @@
 const unknown = 'unknown';
 const addresses = [
     {
-        image: 'restricted access',
         firstName: unknown,
         lastName: unknown,
         home: unknown,
@@ -13,13 +12,44 @@ const addresses = [
         sector: unknown
     },
     {
-        image:'./images/palpatineelectionposter.jpg',
         firstName: unknown,
         lastName: 'Palpatine',
         home: 'Imperial Throne',
         city: 'Imperial City',
         planet: 'Imperial Center (Coruscant)',
         sector: 'Imperial Sector'
+    },
+    {
+        firstName: 'Obi-wan',
+        lastName: 'Kenobi',
+        home: 'Sand Hut',
+        city: 'N/A',
+        planet: 'Tatooine',
+        sector: 'Arkanis Sector'
+    },
+    {
+        firstName: 'Luke',
+        lastName: 'Skywalker',
+        home: 'Aunt and Uncle\'s Hut',
+        city: 'N/A',
+        planet: 'Tatooine',
+        sector: 'Arkanis Sector'
+    },
+    {
+        firstName: 'Han',
+        lastName: 'Solo',
+        home: unknown,
+        city: unknown,
+        planet: 'Corellia',
+        sector: 'Corellian Sector',
+    },
+    {
+        firstName: 'Chewbacca',
+        lastName: 'N/A',
+        home: unknown,
+        city: unknown,
+        planet: 'Kashyyyk',
+        sector: 'Mytaranor Sector',
     }
 
 ];

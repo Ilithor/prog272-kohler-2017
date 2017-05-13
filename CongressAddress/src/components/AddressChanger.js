@@ -11,11 +11,9 @@ class AddressChanger extends Address {
 
     onNameChange = (event) => {
         this.log("ON NAME CHANGE");
-        const address = addresses[this.addressIndex];
+        let address = addresses[this.addressIndex];
+        console.log(address);
         switch (event.target.id) {
-            case 'elfImage':
-                address.image = event.target.value;
-                break;
             case 'elfFirstName':
                 address.firstName = event.target.value;
                 break;
@@ -43,12 +41,17 @@ class AddressChanger extends Address {
     };
 
     render() {
-        if (!this.quiet) { console.log("ADDRESS RENDER"); }
+        if (!this.quiet) {
+            console.log("ADDRESS RENDER");
+        }
         return (
             <div className="App">
                 <AddressEdit
                     address={this.state.address}
                     onAddressChange={this.onAddressChange}
+                    onAddressNext={this.onAddressNext}
+                    onAddressChangeFirst={this.onAddressChangeFirst}
+                    onAddressChangeLast={this.onAddressChangeLast}
                     onNameChange={this.onNameChange}
                 />
             </div>

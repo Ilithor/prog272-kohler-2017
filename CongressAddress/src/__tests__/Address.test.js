@@ -1,10 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Address from '../components/Address';
 import addresses from '../address-list';
 import { mount } from 'enzyme';
 import '../css/index.css';
 
-describe('Address mount Suite', function () {
+describe('Address mount Suite', function() {
 
     let quiet = true;
     let address = {};
@@ -16,8 +17,8 @@ describe('Address mount Suite', function () {
      * @param {boolean} talkToMe - Speak even if quiet is true
      */
 
-    const getIndex = function (wrapper, index, talkToMe) {
-        if(!quiet || talkToMe) {
+    const getIndex = function(wrapper, index, talkToMe) {
+        if (!quiet || talkToMe) {
             const ninep = wrapper.find('div#addressShowRender').childAt(index).debug();
             console.log('NINEP:', ninep);
         }
@@ -27,21 +28,19 @@ describe('Address mount Suite', function () {
         expect(true).toBe(true);
     });
 
-    beforeEach(function () {
+    it('renders without our App component without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<Address />, div);
+    });
+
+
+    beforeEach(function() {
         address = addresses[0];
     });
 
     const defaultFieldTest = (name, index, talkToMe) => {
         const wrapper = mount(<Address address={address} />);
-        const welcome = <p className="App-intro">{name}</p>;
-        getIndex(wrapper, index, talkToMe);
-        expect(wrapper.contains(welcome)).toEqual(true);
-    };
-
-    const afterClickFieldTest = (name, index, talkToMe) => {
-        const wrapper = mount(<Address address={address}/>);
-        const welcome = <p className="App-intro">{name}</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        const welcome = <p className='App-intro'>{name}</p>;
         getIndex(wrapper, index, talkToMe);
         expect(wrapper.contains(welcome)).toEqual(true);
     };
@@ -51,48 +50,24 @@ describe('Address mount Suite', function () {
         defaultFieldTest('firstName: ' + unknown, 0);
     });
 
-    it('renders and displays the updated first name', () => {
-        afterClickFieldTest('firstName: ' + unknown, 1);
-    });
-
     it('renders and displays the default last name', () => {
         defaultFieldTest('lastName: ' + unknown, 0);
-    });
-
-    it('renders and displays the updated last name', () => {
-        afterClickFieldTest('lastName: Palpatine', 1);
     });
 
     it('renders and displays the default home', () => {
         defaultFieldTest('home: ' + unknown, 0);
     });
 
-    it('renders and displays the updated home', () => {
-        afterClickFieldTest('home: Imperial Throne', 1);
-    });
-
     it('renders and displays the default city', () => {
         defaultFieldTest('city: ' + unknown, 0);
-    });
-
-    it('renders and displays the updated city', () => {
-        afterClickFieldTest('city: Imperial City', 1);
     });
 
     it('renders and displays the default planet', () => {
         defaultFieldTest('planet: ' + unknown, 0);
     });
 
-    it('renders and displays the updated planet', () => {
-        afterClickFieldTest('planet: Imperial Center (Coruscant)', 1);
-    });
-
     it('renders and displays the default sector', () => {
         defaultFieldTest('sector: ' + unknown, 0);
-    });
-
-    it('renders and displays the updated sector', () => {
-        afterClickFieldTest('sector: Imperial Sector', 1);
     });
 
     /*for (var variable in addressList[1]) {
