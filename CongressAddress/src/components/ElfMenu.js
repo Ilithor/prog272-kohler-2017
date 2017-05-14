@@ -22,10 +22,10 @@ class ElfMenu extends Component {
                             <li><Link to='/'>AddressShow</Link></li>
                             <li><Link to='/edit'>AddressEdit</Link></li>
                             <li><Link to='/small'>SmallNumbers</Link></li>
-                            <Route exact path='/' component={Address}/>
-                            <Route path='/edit' component={AddressChanger}/>
-                            <Route path='/small' component={SmallNumbers}/>
                         </ul>
+                        <Route exact path='/' component={Address}/>
+                        <Route path='/edit' component={AddressChanger}/>
+                        <Route path='/small' component={SmallNumbers}/>
                     </div>
                 </div>
             </Router>
