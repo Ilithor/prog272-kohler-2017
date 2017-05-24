@@ -59,18 +59,22 @@ readFile('address.json').then(function(text) {
     let gitUser = [];
     const unknown = 'unknown';
     for (let i = 0; i < json.objects.length; i++) {
-        console.log('{');
-        writeIt('firstName:', json.objects[i].person.firstname);
-        writeIt('lastName:', json.objects[i].person.lastname);
-        writeIt('street:', getAddress(json.objects[i].extra.address, 'W'));
-        writeIt('city:', getCity(json.objects[i].extra.address, '2'));
-        writeIt('state:', json.objects[i].state);
-        writeIt('zip: ', getZip(json.objects[i].extra.address));
-        writeIt('phone: ', json.objects[i].phone);
-        writeIt('website: ', json.objects[i].website);
-        writeIt('email:', '');
-        writeIt('contact:', json.objects[i].extra.contact_form || '', true);
-        console.log('},');
+        //console.log('{');
+        const open = (i === 0) ? '[\n\t{' : '\t{';
+        console.log(open);
+        writeIt('"firstName":', json.objects[i].person.firstname);
+        writeIt('"lastName":', json.objects[i].person.lastname);
+        writeIt('"street":', getAddress(json.objects[i].extra.address, 'W'));
+        writeIt('"city":', getCity(json.objects[i].extra.address, '2'));
+        writeIt('"state":', json.objects[i].state);
+        writeIt('"zip": ', getZip(json.objects[i].extra.address));
+        writeIt('"phone": ', json.objects[i].phone);
+        writeIt('"website": ', json.objects[i].website);
+        writeIt('"email":', '');
+        writeIt('"contact":', json.objects[i].extra.contact_form || '', true);
+        //console.log('},');
+        const close = i < jsonLength - 1 ? '\t},' : '\t}\n]';
+        console.log(close);
     }
     //console.log('\n\nSTRINGIFY\n\n', JSON.stringify(gitUser, null, 4));
     debug('all done');

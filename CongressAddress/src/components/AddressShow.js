@@ -20,10 +20,10 @@ class AddressShow extends Component {
         }
     }
 
-    render() {
-        this.log('SHOW ADDRESS RENDER');
-        return (
-            <div id='addressShowRender' className='App'>
+    getAddressBlock = () => {
+        if (this.props.address) {
+            return <div>
+
                 <p className='App-intro'>
                     firstName: {this.props.address === undefined ? '' : this.props.address.firstName}
                 </p>
@@ -42,11 +42,25 @@ class AddressShow extends Component {
                 <p className='App-intro'>
                     sector: {this.props.address === undefined ? '' : this.props.address.sector}
                 </p>
+
+            </div>;
+        } else {
+            return <p className='App-intro'>
+                No Address Given
+            </p>;
+        }
+    }
+
+    render() {
+        this.log('SHOW ADDRESS RENDER');
+        return (
+            <div id='addressShowRender' className='App'>
+                {this.getAddressBlock}
                 <button id='setAddress' onClick={this.props.onAddressChange}>Show Address
                 </button>
                 <button id='firstAddress' onClick={this.props.onAddressChangeFirst}>First Address
                 </button>
-                <button id='nextAddress'  onClick={this.props.onAddressNext}>Next Address
+                <button id='nextAddress' onClick={this.props.onAddressNext}>Next Address
                 </button>
                 <button id='lastAddress' onClick={this.props.onAddressChangeLast}>Last Address
                 </button>

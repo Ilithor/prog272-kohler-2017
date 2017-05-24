@@ -8,8 +8,31 @@ import addresses from '../address-list';
 import {mount} from 'enzyme';
 import '../css/index.css';
 import AddressShow from '../components/AddressShow';
+import DataMaven from '../components/DataMaven';
+import ElfDebugEnzyme from '../ElfDebugEnzyme';
+const elfDebug = new ElfDebugEnzyme(false, 'AddressShow.test.js');
 
 describe('AddressShow mount Suite', function() {
+
+    // http://stackoverflow.com/a/32911774/253576
+    beforeEach(function() {
+        const localStorageMock = (function() {
+            let storage = {};
+            return {
+                getItem: function(key) {
+                    return storage[key];
+                },
+                setItem: function(key, value) {
+                    storage[key] = value.toString();
+                },
+                clear: function() {
+                    storage = {};
+                }
+            };
+        })();
+        Object.defineProperty(global, 'localStorage', {value: localStorageMock});
+
+    });
 
     let quiet = true;
     let address = {};
@@ -42,15 +65,16 @@ describe('AddressShow mount Suite', function() {
     });
 
     const afterClickFieldTest = (name, index, talkToMe) => {
-        const wrapper = mount(<Address address={address}/>);
+        const wrapper = mount(<DataMaven />);
         const welcome = <p className='App-intro'>{name}</p>;
         wrapper.find('button#setAddress').simulate('click');
+        //elfDebug(wrapper, 'div#addressShowRender');
         getIndex(wrapper, index, talkToMe);
         expect(wrapper.contains(welcome)).toEqual(true);
     };
 
     const afterClickFirstAddressTest = (name, index, talkToMe) => {
-        const wrapper = mount(<Address address={address}/>);
+        const wrapper = mount(<DataMaven />);
         const welcome = <p className='App-intro'>{name}</p>;
         wrapper.find('button#firstAddress').simulate('click');
         getIndex(wrapper, index, talkToMe);
@@ -58,7 +82,7 @@ describe('AddressShow mount Suite', function() {
     };
 
     const afterClickLastAddressTest = (name, index, talkToMe) => {
-        const wrapper = mount(<Address address={address}/>);
+        const wrapper = mount(<DataMaven />);
         const welcome = <p className='App-intro'>{name}</p>;
         wrapper.find('button#lastAddress').simulate('click');
         console.log(welcome);

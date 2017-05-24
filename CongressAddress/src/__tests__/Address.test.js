@@ -2,10 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Address from '../components/Address';
 import addresses from '../address-list';
-import { mount } from 'enzyme';
+import {mount} from 'enzyme';
 import '../css/index.css';
+import ElfDebugEnzyme from '../ElfDebugEnzyme';
+const elfDebug = new ElfDebugEnzyme(false, 'Address.test.js');
+jest.mock('whatwg-fetch');
 
 describe('Address mount Suite', function() {
+
+    // http://stackoverflow.com/a/32911774/253576
+    beforeEach(function() {
+        const localStorageMock = (function() {
+            let storage = {};
+            return {
+                getItem: function(key) {
+                    return storage[key];
+                },
+                setItem: function(key, value) {
+                    storage[key] = value.toString();
+                },
+                clear: function() {
+                    storage = {};
+                }
+            };
+        })();
+        Object.defineProperty(global, 'localStorage', {value: localStorageMock});
+
+    });
 
     let quiet = true;
     let address = {};
@@ -33,20 +56,19 @@ describe('Address mount Suite', function() {
         ReactDOM.render(<Address />, div);
     });
 
-
     beforeEach(function() {
         address = addresses[0];
     });
 
     const defaultFieldTest = (name, index, talkToMe) => {
-        const wrapper = mount(<Address address={address} />);
+        const wrapper = mount(<Address address={address}/>);
         const welcome = <p className='App-intro'>{name}</p>;
+        elfDebug.getElement(wrapper, 'div#addressShowRender');
         getIndex(wrapper, index, talkToMe);
         expect(wrapper.contains(welcome)).toEqual(true);
     };
 
     it('renders and displays the default first name', () => {
-        console.log(addresses);
         defaultFieldTest('firstName: ' + unknown, 0);
     });
 
@@ -69,15 +91,6 @@ describe('Address mount Suite', function() {
     it('renders and displays the default sector', () => {
         defaultFieldTest('sector: ' + unknown, 0);
     });
-
-    /*for (var variable in addressList[1]) {
-        it.only('renders button click message', () => {
-            const wrapper = shallow(<Address addressList={addressList}/>);
-            wrapper.find('button.setAddress').simulate('click');
-            addressList[1][variable] = <Address addressList={addressList}/>;
-            expect(wrapper.contains(addressList)).toEqual(true);
-        });
-    }*/
 });
 
 /**

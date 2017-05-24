@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ElfMenu from './components/ElfMenu';
-import ElfHeader from './components/ElfHeader';
+import DataMaven from './components/DataMaven';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 ReactDOM.render(
-    <div>
-        <ElfHeader/>
-        <ElfMenu/>
-    </div>,
+    <Router>
+        <DataMaven />
+    </Router>,
     document.getElementById('root')
 );

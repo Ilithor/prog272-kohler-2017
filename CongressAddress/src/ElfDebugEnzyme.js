@@ -56,7 +56,7 @@ export default class ElfDebugEnzyme {
 
     getIndex(wrapper, element, index, showMe) {
         if (this.showData || showMe) {
-            var paragraphData = wrapper.find(element).childAt(index).debug();
+            let paragraphData = wrapper.find(element).childAt(index).debug();
             this.display(paragraphData);
         }
     }

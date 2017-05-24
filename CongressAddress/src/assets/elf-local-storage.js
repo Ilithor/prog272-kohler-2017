@@ -2,46 +2,41 @@
  * Created by bcuser on 5/8/17.
  */
 
-function saveToLocalStorageByName(key, item) {
-    if (!key) {
-        const storageIndex = localStorage.length + 1;
-        key = 'key' + storageIndex;
+const ELF_TAG = 'elf';
+
+const padNumber = function(numberToPad, width, padValue) {
+    padValue = padValue || '0';
+    numberToPad += '';
+    if (numberToPad.length >= width) {
+        return numberToPad;
+    } else {
+        return new Array(width - numberToPad.length + 1).join(padValue) + numberToPad;
     }
+};
 
-    localStorage.setItem(key, item);
-}
-
-function saveToLocalStorage(item) {
+function saveByIndex(item, index) {
     if (typeof item === 'object') {
         item = JSON.stringify(item, null, 4);
     }
-    const storageIndex = localStorage.length + 1;
-    const key = 'key' + storageIndex;
+    const key = ELF_TAG + padNumber(index, 4, 0);
     localStorage.setItem(key, item);
 }
 
-function getLocalStorage() {
-    let storage = '';
-    let key = '';
-    let storageItem;
-    for (let i = 0; i <= localStorage.length - 1; i++) {
-        key = localStorage.key(i);
-        storageItem = localStorage.getItem(key);
-        if (typeof storageItem === 'object') {
-            storageItem = JSON.stringify(storageItem, null, 4);
-        }
-        if (i === 0) {
-            storage = storageItem;
-        } else {
-            storage = storage + '\n' + storageItem;
+function getByIndex(index) {
+    const key = ELF_TAG + padNumber(index, 4, 0);
+    return JSON.parse(localStorage.getItem(key));
+}
+
+function removeElfKeys() {
+    for (let key in localStorage) {
+        if (key.startsWith(ELF_TAG)) {
+            localStorage.removeItem(key);
         }
     }
-    return storage;
 }
 
 function clearLocalStorage() {
     localStorage.clear();
 }
 
-export {saveToLocalStorage, saveToLocalStorageByName,
-    getLocalStorage, clearLocalStorage};
+export {saveByIndex, getByIndex, removeElfKeys, clearLocalStorage};
