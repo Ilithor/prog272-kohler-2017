@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react';
 import '../css/App.css';
+import {Button} from 'react-bootstrap';
 
 class AddressShow extends Component {
     constructor(props) {
@@ -22,48 +23,64 @@ class AddressShow extends Component {
 
     getAddressBlock = () => {
         if (this.props.address) {
-            return <div>
+            return <form className='navbar-form' action=''>
+                <div id='addressShowRender' className='row'>
+                    <div className='col-sm-12'>
 
-                <p className='App-intro'>
-                    firstName: {this.props.address === undefined ? '' : this.props.address.firstName}
-                </p>
-                <p className='App-intro'>
-                    lastName: {this.props.address === undefined ? '' : this.props.address.lastName}
-                </p>
-                <p className='App-intro'>
-                    home: {this.props.address === undefined ? '' : this.props.address.home}
-                </p>
-                <p className='App-intro'>
-                    city: {this.props.address === undefined ? '' : this.props.address.city}
-                </p>
-                <p className='App-intro'>
-                    planet: {this.props.address === undefined ? '' : this.props.address.planet}
-                </p>
-                <p className='App-intro'>
-                    sector: {this.props.address === undefined ? '' : this.props.address.sector}
-                </p>
+                        <p className='elf-p'>
+                            firstName: {this.props.address === undefined ? '' : this.props.address.firstName}
+                        </p>
+                        <p className='elf-p'>
+                            lastName: {this.props.address === undefined ? '' : this.props.address.lastName}
+                        </p>
+                        <p className='elf-p'>
+                            home: {this.props.address === undefined ? '' : this.props.address.home}
+                        </p>
+                        <p className='elf-p'>
+                            city: {this.props.address === undefined ? '' : this.props.address.city}
+                        </p>
+                        <p className='elf-p'>
+                            planet: {this.props.address === undefined ? '' : this.props.address.planet}
+                        </p>
+                        <p className='elf-p'>
+                            sector: {this.props.address === undefined ? '' : this.props.address.sector}
+                        </p>
 
-            </div>;
+                    </div>
+                </div>
+            </form>;
         } else {
             return <p className='App-intro'>
                 No Address Given
             </p>;
         }
-    }
+    };
 
     render() {
         this.log('SHOW ADDRESS RENDER');
         return (
-            <div id='addressShowRender' className='App'>
+            <div id='addressShowRender' className='row'>
                 {this.getAddressBlock}
-                <button id='setAddress' onClick={this.props.onAddressChange}>Show Address
-                </button>
-                <button id='firstAddress' onClick={this.props.onAddressChangeFirst}>First Address
-                </button>
-                <button id='nextAddress' onClick={this.props.onAddressNext}>Next Address
-                </button>
-                <button id='lastAddress' onClick={this.props.onAddressChangeLast}>Last Address
-                </button>
+                <Button
+                    bsStyle='primary'
+                    id='setAddress'
+                    onClick={this.props.onAddressChange}>Show Address
+                </Button>
+                <Button
+                    bsStyle='primary'
+                    id='firstAddress'
+                    onClick={this.props.onAddressChangeFirst}>First Address
+                </Button>
+                <Button
+                    bsStyle='primary'
+                    id='nextAddress'
+                    onClick={this.props.onAddressNext}>Next Address
+                </Button>
+                <Button
+                    bsStyle='primary'
+                    id='lastAddress'
+                    onClick={this.props.onAddressChangeLast}>Last Address
+                </Button>
             </div>
         );
     }
