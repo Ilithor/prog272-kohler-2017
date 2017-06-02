@@ -1,0 +1,4 @@
+$ cat .bowerrc
+{
+  "directory": "public/bower-components"
+}
