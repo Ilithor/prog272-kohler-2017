@@ -1,4 +1,1 @@
-$ cat .bowerrc
-{
-  "directory": "public/bower-components"
-}
+politicians.json

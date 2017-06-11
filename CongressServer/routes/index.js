@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 //var politicians = require('../models/politicians');
-var allMongo = require('./all-mongo');
-var connect = require('./connect');
+let allMongo = require('./all-mongo');
+let connect = require('./connect');
 
 router.get('/', function(req, res, next) {
     'use strict';

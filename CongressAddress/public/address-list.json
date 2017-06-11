@@ -1,0 +1,53 @@
+/**
+ * Created by bcuser on 4/17/17.
+ */
+[
+  {
+    "firstName": "unknown",
+    "lastName": "unknown",
+    "home": "unknown",
+    "city": "unknown",
+    "planet": "unknown",
+    "sector": "unknown"
+  },
+  {
+    "firstName": "unknown",
+    "lastName": "Palpatine",
+    "home": "Imperial Throne",
+    "city": "Imperial city",
+    "planet": "Imperial Center (Coruscant)",
+    "sector": "Imperial sector"
+  },
+  {
+    "firstName": "Obi-wan",
+    "lastName": "Kenobi",
+    "home": "Sand Hut",
+    "city": "N/A",
+    "planet": "Tatooine",
+    "sector": "Arkanis sector"
+  },
+  {
+    "firstName": "Luke",
+    "lastName": "Skywalker",
+    "home": "Aunt and Uncles Hut",
+    "city": "N/A",
+    "planet": "Tatooine",
+    "sector": "Arkanis sector"
+  },
+  {
+    "firstName": "Han",
+    "lastName": "Solo",
+    "home": "unknown",
+    "city": "unknown",
+    "planet": "Corellia",
+    "sector": "Corellian sector"
+  },
+  {
+    "firstName": "Chewbacca",
+    "lastName": "N/A",
+    "home": "unknown",
+    "city": "unknown",
+    "planet": "Kashyyyk",
+    "sector": "Mytaranor sector"
+  }
+]

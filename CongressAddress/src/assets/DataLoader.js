@@ -1,11 +1,11 @@
 /**
  * Created by bcuser on 5/21/17.
  */
-import Logger from '../assets/elf-logger';
+import Logger from './elf-logger';
 const logger = new Logger('data-loader', 'yellow', 'green', '18px');
 import {
     saveByIndex
-} from '../assets/elf-local-storage';
+} from './elf-local-storage';
 import 'whatwg-fetch';
 
 export default class DataLoader {
