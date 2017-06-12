@@ -53,8 +53,8 @@ export default class Address extends Component {
                 <Text style={styles.instructions}>
                     {this.state.foo}
                 </Text>
-                // REPLACE THESE COMMENTS WITH CODE FOR
-                // DISPLAYING THE FIRST AND LAST NAMES
+                {this.state.firstName}
+                {this.state.lastName}
                 <Button
                     onPress={this.fetchAddress}
                     title="Get Data"
