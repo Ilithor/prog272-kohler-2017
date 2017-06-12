@@ -42,7 +42,7 @@ const connect = {
         });
     },
 
-    //mongodb://<dbuser>:<dbpassword>@ds049848.mlab.com:49848/elvenlab01
+    //mongodb://<dbuser>:<dbpassword>@ds127399.mlab.com:27399/remoteaccesstest
     mlabConnect: function() {
         'use strict';
         console.log('Connecting with mlab');
