@@ -47,10 +47,10 @@ const connect = {
         'use strict';
         console.log('Connecting with mlab');
         connect.connected = true;
-        var userName = 'pol';
-        var password = 'polFooBarQux';
-        var siteAndPort = 'ds049848.mlab.com:49848';
-        var databaseName = 'elvenlab01';
+        var userName = 'Ilithor';
+        var password = 'DarthZorn555';
+        var siteAndPort = 'ds127399.mlab.com:27399';
+        var databaseName = 'remoteaccesstest';
         var url = 'mongodb://' + userName + ':' + password + '@' + siteAndPort + '/' + databaseName;
         mongoose.connect(url);
 
