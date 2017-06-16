@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b6b875f-5b0d-461d-bdfc-34f6d36703bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/DataLoader.js" afterPath="$PROJECT_DIR$/src/assets/DataLoader.js" />
-    </list>
+    <list default="true" id="2b6b875f-5b0d-461d-bdfc-34f6d36703bf" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -409,7 +407,7 @@
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CongressServer" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -577,12 +575,12 @@
       <workItem from="1497215647057" duration="39000" />
       <workItem from="1497221784015" duration="60000" />
       <workItem from="1497310187160" duration="616000" />
-      <workItem from="1497582301246" duration="1716000" />
+      <workItem from="1497582301246" duration="1900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146431000" />
+    <option name="totallyTimeSpent" value="146615000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
