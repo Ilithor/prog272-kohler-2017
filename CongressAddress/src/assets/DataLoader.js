@@ -39,7 +39,7 @@ export default class DataLoader {
             callback(localStorage.getItem(this.STORE_SET[2]));
         } else {
             logger.log('Loading data');
-            fetch('./address-list.json').then(function(data) {
+            fetch('../public/address-list.json').then(function(data) {
                 const addresses = data.json();
                 console.log(addresses);
                 return addresses;
