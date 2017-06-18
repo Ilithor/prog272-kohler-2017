@@ -117,4 +117,4 @@ Final: 82
 Participation: 98
 Total: 90.41
 
-That's an A for the quarter.
+That's an B+ for the quarter.
